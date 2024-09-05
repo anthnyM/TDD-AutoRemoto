@@ -7,4 +7,10 @@ function leer_dimension(com){
     return com.slice(0,slash)
 }
 
-export {leer_comando, leer_dimension}
+function leer_pos_inicial(com){
+    let slash1 = com.indexOf('/') + 1;
+    let slash2 = com.indexOf('/',4);
+    return com.slice(slash1, slash2);
+}
+
+export {leer_comando, leer_dimension, leer_pos_inicial}
