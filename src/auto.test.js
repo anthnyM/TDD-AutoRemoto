@@ -28,9 +28,15 @@ describe("Auto a control remoto", () => {
       
     it('9. Debería mantener la posición inicial si no hay comandos', () => {
       const dimension = "5,5";
-      const posicionInicial = "1,2 N";
+      const posicionInicial = "1,2N";
       const comandos = "";
-      expect(moverAuto(dimension, posicionInicial, comandos)).toBe("1,2 N");
-  });
+      expect(moverAuto(dimension, posicionInicial, comandos)).toBe("1,2N");
+    });
     
+    it('10. Debería avanzar una posición hacia el norte cuando se da el comando A', () => {
+      const dimension = "5,5";
+      const posicionInicial = "1,2N";
+      const comandos = "A";
+      expect(moverAuto(dimension, posicionInicial, comandos)).toBe("1,3N");
+  });
 })

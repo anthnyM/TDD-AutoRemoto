@@ -37,7 +37,18 @@ function validar_comando(com){
 }
 
 function moverAuto(dimension, posicionInicial, comandos) {
-    return posicionInicial; 
+    let [x, y_direccion] = posicionInicial.split(",");
+    let [y, direccion] = y_direccion.split("")
+    x = parseInt(x);
+    y = parseInt(y);
+
+    if (comandos === "A") {
+        if (direccion === "N") {
+            y += 1;
+        }
+    }
+
+    return `${x},${y}${direccion}`;
 }
 
 export {leer_comando, leer_dimension, leer_pos_inicial, leer_instrucciones, validar_comando, moverAuto}
