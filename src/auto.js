@@ -54,9 +54,18 @@ function moverAuto(dimension, posicionInicial, comandos) {
     x = parseInt(x);
     y = parseInt(y);
 
+    const movimientos = {
+        'N': [0, 1],
+        'E': [1, 0],
+        'S': [0, -1],
+        'O': [-1, 0]
+    };
+
     for (let comando of comandos) {
         if (comando === "A") {
-            if (direccion === "N") y += 1;
+            const [dx, dy] = movimientos[direccion];
+            x += dx;
+            y += dy;
         } else {
             direccion = rotar(direccion, comando);
         }

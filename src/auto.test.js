@@ -46,4 +46,12 @@ describe("Auto a control remoto", () => {
       const comandos = "D";
       expect(moverAuto(dimension, posicionInicial, comandos)).toBe("1,2E");
     });
+
+    it('12. Debería avanzar una posición hacia el este cuando se da el comando A desde la posición 1,2 E', () => {
+      const dimension = "5";
+      const posicionInicial = "1,2E";
+      const comandos = "A";
+      expect(moverAuto(dimension, posicionInicial, comandos)).toBe("2,2E");
+  });
+
 })
