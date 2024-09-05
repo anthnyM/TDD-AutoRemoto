@@ -36,15 +36,29 @@ function validar_comando(com){
         return false
 }
 
+function rotar(direccion, comando) {
+    const direcciones = ['N', 'E', 'S', 'O'];
+    let indice = direcciones.indexOf(direccion);
+
+    if (comando === 'I') {
+        return direcciones[(indice + 3) % 4];  // Rotar a la izquierda
+    } else if (comando === 'D') {
+        return direcciones[(indice + 1) % 4];  // Rotar a la derecha
+    }
+    return direccion;
+}
+
 function moverAuto(dimension, posicionInicial, comandos) {
     let [x, y_direccion] = posicionInicial.split(",");
     let [y, direccion] = y_direccion.split("")
     x = parseInt(x);
     y = parseInt(y);
 
-    if (comandos === "A") {
-        if (direccion === "N") {
-            y += 1;
+    for (let comando of comandos) {
+        if (comando === "A") {
+            if (direccion === "N") y += 1;
+        } else {
+            direccion = rotar(direccion, comando);
         }
     }
 

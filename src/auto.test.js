@@ -38,5 +38,12 @@ describe("Auto a control remoto", () => {
       const posicionInicial = "1,2N";
       const comandos = "A";
       expect(moverAuto(dimension, posicionInicial, comandos)).toBe("1,3N");
-  });
+    });
+
+    it('11. Debería girar a la derecha y cambiar dirección de N a E', () => {
+      const dimension = "5,5";
+      const posicionInicial = "1,2N";
+      const comandos = "D";
+      expect(moverAuto(dimension, posicionInicial, comandos)).toBe("1,2E");
+    });
 })
