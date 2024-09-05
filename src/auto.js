@@ -36,4 +36,8 @@ function validar_comando(com){
         return false
 }
 
-export {leer_comando, leer_dimension, leer_pos_inicial, leer_instrucciones, validar_comando}
+function moverAuto(dimension, posicionInicial, comandos) {
+    return posicionInicial; 
+}
+
+export {leer_comando, leer_dimension, leer_pos_inicial, leer_instrucciones, validar_comando, moverAuto}
