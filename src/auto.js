@@ -13,4 +13,10 @@ function leer_pos_inicial(com){
     return com.slice(slash1, slash2);
 }
 
-export {leer_comando, leer_dimension, leer_pos_inicial}
+function leer_instrucciones(com){
+    let slash = com.lastIndexOf('/')
+    let short = com.slice(slash)
+    return com.slice(slash + 1)
+}
+
+export {leer_comando, leer_dimension, leer_pos_inicial, leer_instrucciones}
