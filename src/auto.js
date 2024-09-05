@@ -53,6 +53,7 @@ function moverAuto(dimension, posicionInicial, comandos) {
     let [y, direccion] = y_direccion.split("")
     x = parseInt(x);
     y = parseInt(y);
+    const max = parseInt(dimension[0]);
 
     const movimientos = {
         'N': [0, 1],
@@ -64,8 +65,14 @@ function moverAuto(dimension, posicionInicial, comandos) {
     for (let comando of comandos) {
         if (comando === "A") {
             const [dx, dy] = movimientos[direccion];
-            x += dx;
-            y += dy;
+            const nuevoX = x + dx;
+            const nuevoY = y + dy;
+
+            // Verificar si el nuevo movimiento está dentro de los límites
+            if (nuevoX >= 0 && nuevoX <= max && nuevoY >= 0 && nuevoY <= max) {
+                x = nuevoX;
+                y = nuevoY;
+            }
         } else {
             direccion = rotar(direccion, comando);
         }
