@@ -1,4 +1,4 @@
-import { leer_comando, leer_dimension, leer_pos_inicial, leer_instrucciones} from "./auto";
+import { leer_comando, leer_dimension, leer_pos_inicial, leer_instrucciones, validar_comando} from "./auto";
 
 const comando = document.querySelector("#comando");
 const form = document.querySelector("#comando-form");
@@ -12,9 +12,14 @@ form.addEventListener("submit", (event) => {
   const pos_inicial = leer_pos_inicial(comando.value);
   const instrucciones = leer_instrucciones(comando.value)
 
-  div.innerHTML = 
-  "<p>Comando: " + output + "</p>" +
-  "<p>Dimension: " + dimension + "</p>" +
-  "<p>Posicion inicial: " + pos_inicial + "</p>" +
-  "<p>Instrucciones: " + instrucciones + "</p>";
+  if (validar_comando(comando.value)){
+    div.innerHTML = 
+    "<p>Comando: " + output + "</p>" +
+    "<p>Dimension: " + dimension + "</p>" +
+    "<p>Posicion inicial: " + pos_inicial + "</p>" +
+    "<p>Instrucciones: " + instrucciones + "</p>";
+  }
+  else {
+    div.innerHTML = "<p>Comando invalido</p>"
+  }
 });
