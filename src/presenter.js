@@ -1,15 +1,13 @@
-import sumar from "./sumador";
+import { leer_comando } from "./auto.js";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
+const comando = document.querySelector("#comando");
+const form = document.querySelector("#comando-form");
 const div = document.querySelector("#resultado-div");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
+  const comando = leer_dimension(comando.value);
 
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
-});
+  div.innerHTML = "<p>Dimension: " + dimension + "</p>";
+})
